@@ -281,6 +281,28 @@ git push origin :serverfix
 ### 3.4 分支衍合
 把一个分支中的修改整合到另一个分支两种方式：merge和rebase
 
+rebase 将其他分支修改从两个共同祖先开始，衍合至一个新提交。
+一般我們使用衍合的目的，是想要得到一個能在遠程分支上乾淨應用的補丁—比如某些項目你不是維護者，
+但想幫點忙的話，最好用衍合：先在自己的一個分支裡進行開發，當準備向主項目提交補丁的時候，
+根據最新的 origin/master 進行一次衍合操作然後再提交，這樣維護者就不需要做任何整合工作
+（譯註：實際上是把解決分支補丁同最新主幹代碼之間衝突的責任，化轉為由提交補丁的人來解決。），
+只需根據你提供的倉庫地址作一次快進合併，或者直接採納你提交的補丁。
 
+```shell
+git rebase branch-name // 衍合banrch-name分支到当前分支
+```
 
+```shell
+git rebase master branch-name // 取出banrch-name分支然后在主分支master上重演
+```
+
+```shell
+master --->
+	|----> server ---->
+				|------> client
+
+git rebase --onto master server client // 在master上跳过server分支修改衍合client到master
+```
+
+***一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行衍合操作***
 
