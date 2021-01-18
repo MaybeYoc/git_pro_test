@@ -52,3 +52,25 @@ git clone xxxxxxxxx
 git clone xxxxxxxxx mygit
 ```
 
+### 2.3 查看已暂存和为暂存的更新
+
+查看尚未暂存的文件更新了哪些部分
+```shell
+git diff
+```
+
+查看已暂存和上次提交的差异
+```shell
+git diff --cached
+
+or
+
+git diff --staged
+
+```
+
+### 2.4 commit
+
+```shell
+git commit -v // -v可将具体改变注释到commit中
+```
