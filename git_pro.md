@@ -139,3 +139,97 @@ git reset HEAD <file>...
 取消文件的修改
 
 git checkout -- <file>...
+
+### 2.8 远程操作
+
+```shell
+git remote // 列出每个远程仓库的简短名字，一般默认为origin
+
+-v 显示相对应的克隆地址
+```
+
+添加一个新的远程仓库，指定一个名字以便引用
+```shell
+git remote add [shortname] [url]
+
+git remote add pb git://github.com/paulboone/ticgit.
+
+git fetch pb // remote后 fetch获取主干更新，pull 拉取更新
+
+git remote show [remote-name]获取远程仓库的详细信息
+```
+
+远程仓库的删除和重命名
+```shell
+git remote rename origin paul // origin修改为paul 
+```
+
+```shell
+git remote rm paul // 移除对应远端仓库
+```
+
+### 2.9 打标签
+
+#### 列出已有标签
+```shell
+git tag // -l "*.xx" 只查看匹配的标签
+```
+
+含附注的标签,使用 -a(annotated)
+```shell
+git tag -a v1.4 -m "my version 1.4"
+
+git show v1.4 // 查看标签信息
+```
+
+签署标签，将-a改为-s(signed)
+
+普通标签
+```shell
+git tag v1.4
+```
+
+验证标签
+```shell
+git tag -v [tag-ame] v(verify) // 需要GPG验证签名
+```
+
+往后加注标签
+```shell
+git tag -a v1.2 [commit id]
+```
+
+分享标签
+```shell
+git push origin [tagname] // 推送某一个tag
+git push origin --tags // 推送所有tag
+```
+
+配置别名
+```shell
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.unstage 'reset HEAD --'
+```
+
+## 3 分支
+
+### 3.1 分支创建与合并
+
+创建一个分支
+```shell
+git branch testing
+```
+
+切换一个分支
+```shell
+git checkout testing
+```
+
+**HEAD是一个特殊指针，指向当前工作分支**
+
+创建分支并且切换
+```shell
+git checkout -b testing
+```
+
