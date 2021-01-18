@@ -237,3 +237,50 @@ git checkout -b testing
 ```shell
 git branch -v // 查看各个分支最后一个提交对象信息
 ```
+
+```shell
+git branch --merged // 显示已merge到当前分支的分支
+git branch --no-merged // 显示没有merge到当前分支的分支
+```
+
+分支建议
+master --->
+	|----> develop ---->
+				|------> topic
+
+### 3.3 远程分支
+
+远程分支标识(远程仓库名)/(分支名)
+```shell
+git push (远程仓库名) (分支名)
+```
+
+```shell
+git fetch origin //  获取服务器上最新数据，但不同步至工作目录，并且在本地以 origin/master形式列出一个指针
+
+git checkout -b [local-brname] origin/[remote-brname] // 与服务器分支同步并拉取到本地新建分支
+
+git checkout --track origin/[remote-brname] 上述命令简化版本并且本地分支名与远程仓库一致
+```
+
+提交本地分支
+```shell
+git push [远程名] [本地分支]:[远程分支]
+```
+
+**删除远程分支**
+
+无厘头语法：
+比如删除远程分支 serverfix
+```shell
+git push [远程名] :[分支名]
+
+git push origin :serverfix
+```
+
+### 3.4 分支衍合
+把一个分支中的修改整合到另一个分支两种方式：merge和rebase
+
+
+
+
