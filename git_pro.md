@@ -78,3 +78,9 @@ git commit -v // -v可将具体改变注释到commit中
 ```shell
 git commit -a // -a可跳过add操作直接全部commit
 ```
+
+### 2.5 git rm
+
+-f 选项强制删除暂存区文件
+
+--cached 移除git管理但是保留在工作区
