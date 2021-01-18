@@ -74,3 +74,7 @@ git diff --staged
 ```shell
 git commit -v // -v可将具体改变注释到commit中
 ```
+
+```shell
+git commit -a // -a可跳过add操作直接全部commit
+```
