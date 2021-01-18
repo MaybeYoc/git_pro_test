@@ -233,3 +233,7 @@ git checkout testing
 git checkout -b testing
 ```
 
+### 3.2 分支管理
+```shell
+git branch -v // 查看各个分支最后一个提交对象信息
+```
